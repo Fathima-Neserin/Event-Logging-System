@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const cors = require("cors");
 const dBConnection = require("./config/db.config");
 
 const eventRoutes = require("./route/event.route");
@@ -9,6 +10,7 @@ dotenv.config();
 const server = new express();
 
 server.use(express.json());
+server.use(cors());
 
 server.use("/api/events", eventRoutes);
 
